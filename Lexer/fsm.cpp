@@ -19,9 +19,10 @@ void read(char& cache, istream& stream) {
 }
 
 string value;
-map<string, string> keywords = { {"int", "kwint"},{"char", "kwchar"},{"if", "kwif"},{"else", "kwelse"},{"switch", "kwswitch"},{"case", "kwcase"},{"while", "kwwhile"},{"for", "kwfor"},{"return", "kwreturn"},{"in", "kwin"}, {"out", "kwout"} };
 
 pair<int, Lexem> tick(int state, istream& stream, char& cache) {
+    map<string, string> keywords = { {"int", "kwint"},{"char", "kwchar"},{"if", "kwif"},{"else", "kwelse"},{"switch", "kwswitch"},{"case", "kwcase"},{"while", "kwwhile"},{"for", "kwfor"},{"return", "kwreturn"},{"in", "kwin"}, {"out", "kwout"} };
+
     switch (state) {
     case 0:
         value = "";
@@ -256,7 +257,6 @@ pair<int, Lexem> tick(int state, istream& stream, char& cache) {
                 stream.get(cache);
             }
             stream.unget();
-            read(cache, stream);
             return { 18, {"",""} };
 
         }
